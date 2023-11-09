@@ -1,0 +1,127 @@
+using System;
+namespace LB2
+{
+    interface BasicBanking
+    {
+        abstract bool deposit(int amount);
+        abstract bool withdraw(int amount);
+    }
+
+    class Current : BasicBanking
+    {
+        public int amount;
+        int balance;
+        public bool deposit(int amount)
+        {
+            int Amount = amount;
+
+ 
+
+            Console.WriteLine("Enter your deposit balance: ");
+
+ 
+
+            Console.WriteLine("Your balance is: " + Amount);
+            if (Amount > 0)
+            {
+                return true;
+            }
+            else { return false; }
+        }
+        public bool withdraw(int amount)
+        {
+            int Amount = amount;
+            Console.WriteLine("Enter your withdraw balance: ");
+            Console.WriteLine("New balance:" + Amount);
+            if (Amount <= 0.8 * balance)
+            {
+                balance = balance - Amount;
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Invalid amount. ");
+                return false;
+            }
+        }
+    }
+    class Saving : BasicBanking
+    {
+        public int amount;
+        int balance;
+
+ 
+
+        public bool deposit(int amount)
+        {
+            int Amount = amount;
+            Console.WriteLine("Enter your deposit balance: ");
+            Console.WriteLine("Your balance is: " + Amount);
+            if (Amount > 0)
+            {
+                return true;
+            }
+            else { return false; }
+        }
+        public bool withdraw(int amount)
+        {
+            int Amount = amount;
+            Console.WriteLine("Enter your withdraw balance: ");
+            Console.WriteLine("New balance:" + Amount);
+            if (Amount <= 0.8 * balance)
+            {
+                balance = balance - Amount;
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Invalid amount. ");
+                return false;
+            }
+        }
+    }
+    class Overdraft : BasicBanking
+    {
+        public int amount;
+        int balance;
+
+        public bool deposit(int amount)
+        {
+            int Amount = amount;
+            Console.WriteLine("Enter your deposit balance: ");
+            Console.WriteLine("Your balance is: " + Amount);
+            if (Amount > 0)
+            {
+                return true;
+            }
+            else { return false; }
+        }
+        public bool withdraw(int amount)
+        {
+            int Amount = amount;
+            if (Amount < 9000)
+            {
+                return true;
+            }
+            else { return false; }
+        }
+
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Current cur = new Current();
+            cur.deposit(40000);
+            cur.withdraw(2000);
+            Saving sav = new Saving();
+            sav.deposit(5000);
+            sav.withdraw(1000);
+            Overdraft over = new Overdraft();
+            over.deposit(3500);
+            over.withdraw(8000);
+            over.withdraw(5000);
+        }
+
+    }
+}
