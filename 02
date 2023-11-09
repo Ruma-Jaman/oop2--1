@@ -1,0 +1,164 @@
+using System;
+namespace labtask2
+
+{
+
+    class Employee : Manager
+
+    {
+
+        public int Id;
+
+        public string name;
+
+        public string address;
+        public Employee(int id, string name, string address, int yearsOfExperience)
+
+         {
+
+            Id = id;
+
+            this.name = name;
+
+            this.address = address;
+
+            this.yearsOfExperience = yearsOfExperience;
+        }
+       public void showInfo()
+
+        {
+
+            Console.WriteLine("ID :" + Id);
+
+            Console.WriteLine("Name :" + name);
+
+            Console.WriteLine("Address :" + address);
+
+            Console.WriteLine("years of experience :"+yearsOfExperience);
+
+            Console.WriteLine("userRating rating :"+userRating);
+
+            Console.WriteLine("chargePerService:" + chargePerService);
+
+            Console.WriteLine("no of services :"+noOfServices);
+
+        }
+        public void EmployeeStatus()
+
+        {
+
+            if (userRating == 70 && noOfServices >= 10)
+
+            {
+
+                Console.WriteLine("Eligible for Bonus!");
+
+            }
+
+            else if (yearsOfExperience == 10)
+
+            {
+
+                Console.WriteLine("Eligible for Bonus!");
+
+            }
+
+            else
+
+            {
+
+                Console.WriteLine("Not Eligible for Bonus!");
+
+            }
+        }
+
+    }
+
+    class Laborer
+
+    {
+        public int userRating;
+
+        public int chargePerService = 500;
+
+        public int noOfServices;
+        public Laborer(int userRating, int chargePerService, int noOfServices)
+
+        {
+
+            this.userRating = userRating;
+
+            this.chargePerService = chargePerService;
+
+            this.noOfServices = noOfServices;
+
+        }
+
+        public void TotalEarn(int x)
+
+        {
+
+            TotalEarn(x);
+
+        }
+
+    }
+    class Manager : Laborer
+
+    {
+
+        public int yearsOfExperience;
+
+ 
+
+ 
+
+    }
+   class ServiceProvider : Employee
+
+    {
+        public void ProvideDetails()
+
+        {
+
+            Console.Write("show service provider details:"+showInfo);
+        }
+        public void SkilledWorker()
+
+        {
+        }
+
+    }
+
+    class program
+
+    {
+
+
+            private static void Main(string[] args)
+
+            {
+
+                ServiceProvider.Inset(new Manager("PM-01", "Shuvo", "Uttara", 5));
+
+                ServiceProvider.Inset(new Manager("PM-02", "Jahid", "Badda", 1));
+
+                ServiceProvider.Inset(new Laborer("PL-001", "Sohan", "Mirpur", 85, 20));
+
+                ServiceProvider.Inset(new Laborer("PL-002", "Jisan", "Kuril", 65, 44));
+
+                ServiceProvider.Inset(new Laborer("PL-003", "Numan", "Banani", 88, 3));
+
+                //Manager(id,name,address,yearsOfExperience)
+
+                //Laborer(id,name,address,userrating,noOfServices)
+
+                ServiceProvider.ProvideDetails();
+
+                ServiceProvider.SkilledWorker();
+
+            }
+
+    }
+
+}
